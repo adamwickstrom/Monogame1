@@ -11,10 +11,10 @@ namespace Template
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D xwing;
-        Vector2 xwingPos = new Vector2(100, 350);
         List<Vector2> xwingBulletPos = new List<Vector2>();
         List<Enemy> enemyList = new List<Enemy>();
+        xwing Xwing;
+        Texture2D XwingText;
         KeyboardState KNewState;
         KeyboardState k0ldState;
                     
@@ -47,7 +47,8 @@ namespace Template
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            xwing = Content.Load<Texture2D>("xwing");
+            XwingText = Content.Load<Texture2D>("xwing");
+            Xwing = new xwing(XwingText);
 
             // TODO: use this.Content to load your game content here 
         }
@@ -76,13 +77,15 @@ namespace Template
             // TODO: Add your update logic here
 
 
-            
-            if (KNewState.IsKeyDown(Keys.Right))
+            Xwing.Update();
+
+            /*if (KNewState.IsKeyDown(Keys.Right))
                 if (xwingPos.X < 700)
                     xwingPos.X += 10;
             if (KNewState.IsKeyDown(Keys.Left))
                 if(xwingPos.X > 0)
                     xwingPos.X -= 10;
+                    */
 
             if (KNewState.IsKeyDown(Keys.Space) && k0ldState.IsKeyUp(Keys.Space))
             {
@@ -118,7 +121,8 @@ namespace Template
 
             spriteBatch.Begin();
 
-            spriteBatch.Draw(xwing, xwingPos, Color.White);
+            Xwing.Draw(spriteBatch);
+
             foreach (Vector2 bulletPos in xwingBulletPos)
             {
                 Rectangle rec = new Rectangle();

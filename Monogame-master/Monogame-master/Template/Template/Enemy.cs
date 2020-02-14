@@ -11,9 +11,9 @@ namespace Template
 {
     class Enemy
     {
-        Texture2D enemy;
-        Random enemyspawn = new Random();
-        Vector2 enemyPos = new Vector2();
+        private Texture2D enemy;
+        private Random enemyspawn = new Random();
+        private Vector2 enemyPos = new Vector2();
 
         public Enemy(Texture2D enemy)
         {
