@@ -24,7 +24,7 @@ namespace Template
 
         public void Update()
         {
-            enemyPos.Y--;
+            enemyPos.Y++;
         }
 
         public void Draw(SpriteBatch spriteBatch)

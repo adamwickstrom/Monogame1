@@ -14,6 +14,8 @@ namespace Template
         List<Enemy> enemyList = new List<Enemy>();
         xwing Xwing;
         Texture2D XwingText;
+        Enemy enemy;
+        Texture2D enemyText;
         KeyboardState KNewState;
         KeyboardState k0ldState;
                     
@@ -48,6 +50,11 @@ namespace Template
             spriteBatch = new SpriteBatch(GraphicsDevice);
             XwingText = Content.Load<Texture2D>("xwing");
             Xwing = new xwing(XwingText);
+            enemyText = Content.Load<Texture2D>("gabbe");
+            enemy = new Enemy(enemyText);
+            enemyList.Add(enemy);
+
+            
 
             // TODO: use this.Content to load your game content here 
         }
@@ -78,11 +85,16 @@ namespace Template
 
             Xwing.Update();
 
+            enemy = new Enemy(enemyText);
+            enemyList.Add(enemy);
 
-            //for (int i = 0; i < enemyList.Count; i++)
-         //   {
-           //     enemyList[i] = enemyList[i] - new Enemy(0, 10);
-            //}
+            foreach (Enemy e in enemyList)
+            {
+                e.Update();
+            }
+
+
+   
 
             k0ldState = KNewState;
 
@@ -103,6 +115,12 @@ namespace Template
             spriteBatch.Begin();
 
             Xwing.Draw(spriteBatch);
+
+            foreach(Enemy e in enemyList)
+            {
+                e.Draw(spriteBatch);
+            }
+                      
       
             spriteBatch.End();
 
