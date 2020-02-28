@@ -7,29 +7,30 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+
 namespace Template
 {
     class Enemy
     {
-        private Texture2D enemy;
-        private Random enemyspawn = new Random();
-        private Vector2 enemyPos = new Vector2();
+        private Texture2D texture;
+        private Random random = new Random();
+        private Vector2 pos = new Vector2();
 
         public Enemy(Texture2D enemy)
         {
-            this.enemy = enemy;
-            enemyPos.X = enemyspawn.Next(0, 800);
+            this.texture = enemy;
+            pos.X = random.Next(0, 800);
 
         }
 
         public void Update()
         {
-            enemyPos.Y++;
+            pos.Y++;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(enemy, new Rectangle((int)enemyPos.X, (int)enemyPos.Y, 30, 40), Color.White);
+            spriteBatch.Draw(texture, new Rectangle((int)pos.X, (int)pos.Y, 30, 40), Color.White);
         }
     }
 

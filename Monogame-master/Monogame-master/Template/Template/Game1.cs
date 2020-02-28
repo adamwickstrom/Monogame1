@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 namespace Template
 {
@@ -18,7 +19,8 @@ namespace Template
         Texture2D enemyText;
         KeyboardState KNewState;
         KeyboardState k0ldState;
-                    
+        Random rnd = new Random();
+
 
         //KOmentar
         public Game1()
@@ -85,9 +87,15 @@ namespace Template
 
             Xwing.Update();
 
-            enemy = new Enemy(enemyText);
-            enemyList.Add(enemy);
 
+
+            int antal = rnd.Next(30);
+
+            if (antal == 4) {
+                
+                enemy = new Enemy(enemyText);
+                enemyList.Add(enemy);
+            }
             foreach (Enemy e in enemyList)
             {
                 e.Update();
