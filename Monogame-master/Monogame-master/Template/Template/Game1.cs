@@ -12,14 +12,22 @@ namespace Template
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
         List<Enemy> enemyList = new List<Enemy>();
+        Enemy enemy;
+        Random rnd = new Random();
+        Texture2D enemyText;
+
         xwing Xwing;
         Texture2D XwingText;
-        Enemy enemy;
-        Texture2D enemyText;
+
+        Texture2D explosion;
+        Vector2 enemyExplosion;
+        Rectangle enemyHitbox = new Rectangle();
+
         KeyboardState KNewState;
         KeyboardState k0ldState;
-        Random rnd = new Random();
+        
 
 
         //KOmentar
@@ -122,12 +130,14 @@ namespace Template
 
             spriteBatch.Begin();
 
-            Xwing.Draw(spriteBatch);
-
-            foreach(Enemy e in enemyList)
+            foreach (Enemy e in enemyList)
             {
                 e.Draw(spriteBatch);
             }
+
+            Xwing.Draw(spriteBatch);
+
+            
                       
       
             spriteBatch.End();

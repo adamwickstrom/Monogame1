@@ -64,5 +64,8 @@ namespace Template
                 spriteBatch.Draw(xwingTex, rec, Color.Red);
             }
         }
+
+        
+
     }
 }

@@ -16,6 +16,7 @@ namespace Template
         private Random random = new Random();
         private Vector2 pos = new Vector2();
 
+
         public Enemy(Texture2D enemy)
         {
             this.texture = enemy;
@@ -31,7 +32,10 @@ namespace Template
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, new Rectangle((int)pos.X, (int)pos.Y, 30, 40), Color.White);
+
         }
+
+
     }
 
     
